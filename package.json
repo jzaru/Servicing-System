@@ -1,0 +1,25 @@
+{
+  "name": "se2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:all":" concurrently \"cd backend && npm run start \"cd frontend && npm run dev" ,
+    "start:backend": "cd backend/ && npm run start",
+    "start:frontend": "cd frontend/ && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MJS022423/Servicing-System.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MJS022423/Servicing-System/issues"
+  },
+  "homepage": "https://github.com/MJS022423/Servicing-System#readme",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

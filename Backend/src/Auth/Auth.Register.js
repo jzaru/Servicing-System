@@ -9,23 +9,6 @@ const db = new Database();
 const log = false;
 const salt = parseInt(process.env.salt);
 
-async function userSchema(req) {
-  const { username, email, password } = req.body;
-  const hashedpassword = await bcrypt.hash(password, salt);
-  return {
-    Username: `${username}`,
-    Email: `${email}`,
-    Password: `${hashedpassword}`,
-    Profile_pic: null,
-    DisplayName: null,
-    Gender: null,
-    Role: 'user',
-    Bookmark: [],
-    Post: [],
-    Createdat: new Date(),
-  }
-};
-
 async function Register(req, res) {
   ConsoleLog('[ REGISTER ROUTER ]', log);
 
@@ -35,7 +18,7 @@ async function Register(req, res) {
 
   try {
 
-    const collection = await db.Collection('users');
+    const collection = await db.Collection();
     const doc = await userSchema(req)
     await collection.insertOne(doc);
     ConsoleLog('[ USER REGISTERED SUCCESSFULLY ]', log);

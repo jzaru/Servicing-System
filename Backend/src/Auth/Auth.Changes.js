@@ -16,7 +16,7 @@ export async function UpdateProfile(req, res) {
   const { userid, name, username, profilePicture } = req.body;
 
   try {
-    const collection = await db.Collection('users');
+    const collection = await db.Collection();
     const user = await collection.findOne({ _id: new ObjectId(userid) });
 
     if (!user) {

@@ -18,7 +18,7 @@ async function Register(req, res) {
     return res.status(400).json({ error: "Register Failed Parameter is Empty" });
   }
   try {
-    const collection = await db.Collection();
+    const collection = await db.Collection(0);
     const doc = await userSchema(req, salt);
     await collection.insertOne(doc);
     

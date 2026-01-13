@@ -14,7 +14,7 @@ async function Login(req, res) {
 
   try {
 
-    const collection = await db.Collection();
+    const collection = await db.Collection(0);
     const { username, password } = req.body;    
     const user = await collection.findOne({ Username : username });
 

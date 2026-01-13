@@ -5,6 +5,7 @@ import express from 'express';
 import rateLimit from 'express-rate-limit';
 import __dirname from './src/lib/dirname.js';
 import Authrouter from './src/Routes/Auth.Routes.js'
+import AnnouncementRouter from './src/Routes/Announcement.Routes.js';
 
 // Load environment variables
 
@@ -22,7 +23,8 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.json({ limit: '50mb' }));
 app.use(limiter);
 
-app.use(Authrouter)
+app.use(Authrouter);
+app.use(AnnouncementRouter);
 
 app.get('/status', (req, res) => {
   res.status(200).json({ status: 'ok', message: '[ EXPRESS SERVER IS RUNNING ]' });

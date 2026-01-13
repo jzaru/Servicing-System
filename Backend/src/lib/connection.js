@@ -4,6 +4,13 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const collection_list = [
+  process.env.DBCollection1,
+  process.env.DBCollection2,
+  process.env.DBCollection3,
+  process.env.DBCollection4,
+]
+
 class Database {
   constructor(online = false) {
 
@@ -29,7 +36,8 @@ class Database {
     }
   }
 
-  async Collection(collection = process.env.DB_collection_name) {
+  async Collection(index) {
+    const collection = collection_list[index]
     if (collection) {
       try {
         const db = await this.Connection();

@@ -14,12 +14,14 @@ const salt = parseInt(process.env.salt);
 async function Register(req, res) {
   ConsoleLog('[ REGISTER ROUTER ]', log);
 
-  if (!req.body) {
-    return res.status(400).json({ error: "Register Failed Parameter is Empty" });
+  const {username, email, password } = req.body;
+
+  if (!username || !email || !password) {
+    return res.status(400).json({ error: "Missing Required Field" });
   }
   try {
     const collection = await db.Collection(0);
-    const doc = await userSchema(req, salt);
+    const doc = await userSchema( username, email, password, salt );
     await collection.insertOne(doc);
     
     ConsoleLog('[ USER REGISTERED SUCCESSFULLY ]', log);

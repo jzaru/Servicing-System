@@ -1,7 +1,12 @@
 import bcrypt from 'bcrypt';
 
-async function userSchema(req, salt) {
-  const { username, email, password } = req.body;
+async function userSchema(
+  username,
+  email,
+  password,
+  salt
+) {
+  
   const hashedpassword = await bcrypt.hash(password, salt);
   return {
     Username: `${username}`,

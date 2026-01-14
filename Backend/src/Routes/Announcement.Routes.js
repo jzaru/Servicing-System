@@ -1,5 +1,6 @@
 import express from 'express';
-import { PostAnnounce, DisplayAnnounce } from '../Service/Announcement/PostAnnouncement.js';
+import PostAnnounce from '../Service/Announcement/PostAnnouncement.js';
+import DisplayAnnounce from '../Service/Announcement/DisplayAnnouncement.js';
 
 const AnnouncementRouter = express.Router();
 

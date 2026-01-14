@@ -1,5 +1,9 @@
-function AnnouncementSchema(req) {
-  const { Title, Content, Createdby } = req.body;
+function AnnouncementSchema(
+  Title,
+  Content,
+  Createdby
+) {
+
   return {
     title: `${Title}`,
     content: `${Content}`,

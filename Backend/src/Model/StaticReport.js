@@ -1,4 +1,4 @@
-async function ReportSchema(
+export async function ReportSchema(
   userid,
   title,
   description,
@@ -12,5 +12,3 @@ async function ReportSchema(
     ResolveAt: null,
   }
 }
-
-export default ReportSchema;

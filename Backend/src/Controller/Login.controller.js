@@ -11,7 +11,7 @@ async function Login(req, res) {
   }
 
   try {
-    const result = await LoginService(req.body);
+    const result = await LoginService(req.body, req.ip);
 
     res.cookie("access_token", result.token, {
       httpOnly: true,

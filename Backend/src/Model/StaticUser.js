@@ -1,8 +1,7 @@
 export async function userSchema(
   username,
   email,
-  password,
-  salt
+  password
 ) {
   
   return {

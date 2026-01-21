@@ -3,6 +3,7 @@ import path from 'path';
 import __dirname from '../lib/dirname.js';
 import { userSchema } from "../Model/StaticUser.js";
 import { InsertUserAccount } from '../Repository/Register.repository.js';
+import bcrypt from 'bcrypt';
 
 dotenv.config({ path: path.join(__dirname, 'config', '.env') })
 
@@ -22,7 +23,9 @@ export async function RegisterService({ username, email, password }) {
 
   try {
     const salt = parseInt(process.env.salt);
-    const doc = await userSchema(username, email, password, salt);
+    const hashehpassword = await bcrypt.hash(password, salt);
+
+    const doc = await userSchema(username, email, hashehpassword);
     InsertUserAccount(doc);
 
   } catch (error) {
